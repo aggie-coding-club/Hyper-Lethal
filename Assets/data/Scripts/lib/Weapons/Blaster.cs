@@ -17,7 +17,9 @@ public class Blaster : Weapon
                 Rigidbody2D prb2D = proj.GetComponent<Rigidbody2D>();
                 Projectile projData = proj.GetComponent<Projectile>();
 
-                float offset = Mathf.Lerp(-spreadDeg, spreadDeg, (i) / (float)(pCount - 1));
+                float offset = 0;
+                if (pCount > 1)
+                    offset = Mathf.Lerp(-spreadDeg, spreadDeg, (i) / (float)(pCount - 1));
                 trans.Rotate(0, 0, offset + inaccuracy * Random.Range(-180, 180));
                 prb2D.velocity = trans.up * pVelocity;
                 trans.localScale *= pSize;

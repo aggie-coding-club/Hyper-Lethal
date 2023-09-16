@@ -26,8 +26,8 @@ public class SteeringBehaviorBase : MonoBehaviour
         foreach (Steering behavior in steerings)
         {
             SteeringData steering = behavior.GetSteering(this);
-            desiredAcc += steering.linear;
-            desiredRotation += steering.angular;
+            desiredAcc += steering.linear * behavior.weight;
+            desiredRotation += steering.angular * behavior.weight;
         }
         engine.impulse_vector = desiredAcc;
         engine.rotation_input = desiredRotation;

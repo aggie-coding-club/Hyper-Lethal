@@ -8,6 +8,7 @@ public class ArriveBehavior : Steering
     private Transform target;
     [SerializeField] private float targetRadius = 1.5f;
     [SerializeField] private float slowRadius = 5f;
+
     public override SteeringData GetSteering(SteeringBehaviorBase
     steeringbase)
     {

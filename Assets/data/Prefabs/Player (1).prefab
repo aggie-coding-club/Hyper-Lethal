@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4252398296941001763}
   - component: {fileID: 4252398296941001761}
   - component: {fileID: 4252398296941001762}
-  - component: {fileID: 4252398296941001760}
   m_Layer: 0
   m_Name: turret
   m_TagString: Untagged
@@ -99,30 +98,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ee36e8d10230284db84fda782922c54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 4252398296941001760}
---- !u!114 &4252398296941001760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4252398296941001764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f11c90a5043ec984db003e14b489e4f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectile: {fileID: 5076589446130002373, guid: b68f247430d683b4e800d90e1c6117a5, type: 3}
-  firePoint: {fileID: 4252398296957871334}
-  damage: 10
-  fireRate: 1
-  pVelocity: 30
-  pLifetime: 1
-  pSize: 0.5
-  pCount: 3
-  spreadDeg: 15
-  accuracy: 1
-  fireTimer: 0
 --- !u!1 &4252398296957871335
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,16 +295,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aaf5a655c032d3498e60dc1c77dc1d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceFactor: 10
   maxAcc: 20
   drag: 0.8
   maxVel: 40
-  angAccFactor: 270
   maxAngAcc: 720
   maxAngVel: 270
   angDrag: 3
-  impulse_input: 0
-  steering_input: 0
+  rotation_input: 0
+  impulse_vector: {x: 0, y: 0}
 --- !u!114 &4252398297692806164
 MonoBehaviour:
   m_ObjectHideFlags: 0

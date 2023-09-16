@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Steering : MonoBehaviour
 {
+    public float weight = 1;
     public abstract SteeringData GetSteering(SteeringBehaviorBase steeringbase);
 }
 
@@ -11,6 +12,7 @@ public class SteeringData
 {
     public Vector2 linear;
     public float angular;
+
     public SteeringData()
     {
         linear = Vector2.zero;

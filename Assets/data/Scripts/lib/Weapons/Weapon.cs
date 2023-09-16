@@ -29,11 +29,6 @@ public abstract class Weapon : MonoBehaviour
         inaccuracy = (1 - accuracy);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void FixedUpdate()
     {
         if (fireTimer > 0)
