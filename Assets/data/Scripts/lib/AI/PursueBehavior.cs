@@ -16,7 +16,7 @@ public class PursueBehavior : Steering
 
         // And I want to predict where I am going to be
         Vector2 prediction_delta_self = GetComponent<Rigidbody2D>().velocity * prediction;
-        Vector2 predicted_location_self = (Vector2) transform.position - prediction_delta_self;
+        Vector2 predicted_location_self = (Vector2) transform.position + prediction_delta_self;
 
         // The delta between where I think I'm going to be and where I think my target will be is where I should be going
         steering.linear = predicted_location_target - predicted_location_self;
