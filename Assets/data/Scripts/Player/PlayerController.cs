@@ -23,7 +23,10 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.Q))
             foreach(Turret turret in turrets)
             {
-                turret.shoot();
+                if (turret.isActiveAndEnabled)
+                {
+                    turret.shoot();
+                }
             }
     }
 }
