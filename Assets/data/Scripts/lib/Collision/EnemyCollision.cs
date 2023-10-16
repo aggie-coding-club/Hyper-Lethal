@@ -10,16 +10,29 @@ public class EnemyCollision : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case ("Player"):
-            switch (gameObject.name)
-            {
-                case ("Kami"):
-                    Destroy(gameObject);
-                    break;
-            }
-            break;
+                switch (gameObject.name)
+                {
+                    case ("Kami"):
+                        Destroy(gameObject);
+                        break;
+                }
+                break;
             case ("PlayerProjectile"):
-                Projectile proj = collision.gameObject.GetComponent<Projectile>();
-                gameObject.GetComponent<HealthManager>().damage(proj.damage);
+                if (collision.gameObject.GetComponent<Projectile>() != null)
+                {
+                    Projectile proj = collision.gameObject.GetComponent<Projectile>();
+                    gameObject.GetComponent<HealthManager>().damage(proj.damage);
+                }
+                else if (collision.gameObject.GetComponentInParent<Projectile>() != null)
+                {
+                    Projectile proj = collision.gameObject.GetComponentInParent<Projectile>();
+                    gameObject.GetComponent<HealthManager>().damage(proj.damage);
+                }
+                else
+                {
+                    projectileBehavior proj = collision.gameObject.GetComponent<projectileBehavior>();
+                    gameObject.GetComponent<HealthManager>().damage(proj.returnExplodeDamage());
+                }
                 break;
         }
     }
