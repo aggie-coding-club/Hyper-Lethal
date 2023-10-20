@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class ArriveBehavior : Steering
 {
-    [SerializeField]
-    private Transform target;
+    [SerializeField] private Transform target;
     [SerializeField] private float targetRadius = 1.5f;
     [SerializeField] private float slowRadius = 5f;
 
