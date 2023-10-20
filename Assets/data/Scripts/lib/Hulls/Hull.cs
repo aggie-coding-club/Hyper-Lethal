@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class Hull : MonoBehaviour
 {
-    [SerializeField] private float maxHull= 100;
+    [SerializeField] private float maxHull = 100;
     [SerializeField] private float regenRatePerc = 0.01f;
-    
-    // Will remove serialize field tag when optimizing
-    [SerializeField] private float hull;
-    [SerializeField] private bool broken = false;
 
-    // Start is called before the first frame update
+    private float hull;
+    private bool broken = false;
+
     void Start()
     {
-        hull = maxHull;   
+        hull = maxHull;
     }
 
     void FixedUpdate()
@@ -26,6 +24,7 @@ public class Hull : MonoBehaviour
         else
             hull = maxHull;
     }
+
     public bool damage(float damage)
     {
         hull -= damage;
@@ -36,5 +35,16 @@ public class Hull : MonoBehaviour
             broken = true;
         }
         return broken;
+    }
+
+    public void IncreaseHull(float amount)
+    {
+        maxHull += amount;
+    }
+
+
+    public float getHull()
+    {
+        return maxHull;
     }
 }

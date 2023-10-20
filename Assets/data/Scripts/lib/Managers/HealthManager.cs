@@ -22,4 +22,9 @@ public class HealthManager : MonoBehaviour
             Destroy(gameObject);
         return dead;
     }
+
+    public float getHull()
+    {
+        return hull.getHull();
+    }
 }
