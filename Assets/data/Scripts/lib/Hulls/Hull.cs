@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hull : MonoBehaviour
+public abstract class Hull : MonoBehaviour
 {
     [SerializeField] private float maxHull= 100;
     [SerializeField] private float regenRatePerc = 0.01f;
@@ -17,7 +17,7 @@ public class Hull : MonoBehaviour
         hull = maxHull;   
     }
 
-    void FixedUpdate()
+    public void updateHull()
     {
         if (broken)
             return;
@@ -37,4 +37,5 @@ public class Hull : MonoBehaviour
         }
         return broken;
     }
+    public abstract void FixedUpdate();
 }
