@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shield : MonoBehaviour
+public abstract class Shield : MonoBehaviour
 {
 
     [SerializeField] private float maxShield = 100;
@@ -10,7 +10,6 @@ public class Shield : MonoBehaviour
     [SerializeField] private float rechargeDelay = 2;
     [SerializeField] private float shutdownDelay = 6;
 
-    
     private enum States : short
     {
         normal = 0,
@@ -35,9 +34,8 @@ public class Shield : MonoBehaviour
         shutdownTimer = shutdownDelay;
     }
 
-    private void FixedUpdate()
+    public void updateShield()
     {
-
         if (state == States.shutdown)
         { // Will stay in shutdown until shutdown timer expires
             shutdown();
@@ -97,4 +95,5 @@ public class Shield : MonoBehaviour
         }
         return overkill;
     }
+    public abstract void FixedUpdate();
 }

@@ -21,9 +21,11 @@ public class PlayerController : MonoBehaviour
         engine.rotation_input = Input.GetAxisRaw("Horizontal")* engine.maxAngAcc;
         engine.impulse_vector = transform.up*Input.GetAxisRaw("Vertical")*engine.maxAcc;
         if (Input.GetKey(KeyCode.Q))
+        {
             foreach(Turret turret in turrets)
             {
                 turret.shoot();
             }
+        }
     }
 }
