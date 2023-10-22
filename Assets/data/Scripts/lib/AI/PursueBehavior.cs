@@ -22,7 +22,7 @@ public class PursueBehavior : Steering
         steering.linear = predicted_location_target - predicted_location_self;
         
         steering.linear.Normalize();
-        steering.linear *= steeringbase.maxAcc;
+        steering.linear *= steeringbase.MaxAcc;
         steering.angular = 0;
         return steering;
     }

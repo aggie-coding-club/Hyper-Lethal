@@ -12,7 +12,7 @@ public class FleeBehavior : Steering
         steering.linear = transform.position - target.transform.position;
         
         steering.linear.Normalize();
-        steering.linear *= steeringbase.maxAcc;
+        steering.linear *= steeringbase.MaxAcc;
         steering.angular = 0;
         return steering;
     }

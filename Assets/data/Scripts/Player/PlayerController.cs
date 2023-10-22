@@ -18,8 +18,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        engine.rotation_input = Input.GetAxisRaw("Horizontal")* engine.maxAngAcc;
-        engine.impulse_vector = transform.up*Input.GetAxisRaw("Vertical")*engine.maxAcc;
+        engine.rotation_input = Input.GetAxisRaw("Horizontal")* engine.MaxAngAcc;
+        engine.impulse_vector = transform.up*Input.GetAxisRaw("Vertical")*engine.MaxAcc;
         if (Input.GetKey(KeyCode.Q))
         {
             foreach(Turret turret in turrets)

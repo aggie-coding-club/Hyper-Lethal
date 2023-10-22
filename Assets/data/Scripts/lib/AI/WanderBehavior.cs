@@ -36,7 +36,7 @@ public class WanderBehavior : Steering
 
         steering.linear = targetPosition - transform.position;
         steering.linear.Normalize();
-        steering.linear *= steeringbase.maxAcc;
+        steering.linear *= steeringbase.MaxAcc;
         steering.angular = 0;
         return steering;
     }

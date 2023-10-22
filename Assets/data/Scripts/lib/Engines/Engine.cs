@@ -6,22 +6,31 @@ using UnityEngine;
 public abstract class Engine : MonoBehaviour
 {
     private Rigidbody2D rb2D;
+    
     private Vector2 acceleration_real = Vector2.zero;
     private float angAcc_real = 0f;
 
-    public float maxAcc = 20f;
+    private float maxAcc = 20f;
+    private float maxVel = 40f;
+    private float drag = 0.8f;
 
-    public float drag = 0.8f;
 
-    public float maxVel = 40f;
-
-    public float maxAngAcc = 720f;
-    public float maxAngVel = 270f;
-    public float angDrag = 3;
+    private float maxAngAcc = 720f;
+    private float maxAngVel = 270f;
+    private float angDrag = 3;
 
     public float rotation_input;
 
     public Vector2 impulse_vector;
+
+    public Vector2 Acceleration_real { get => acceleration_real; set => acceleration_real = value; }
+    public float AngAcc_real { get => angAcc_real; set => angAcc_real = value; }
+    public float MaxAcc { get => maxAcc; set => maxAcc = value; }
+    public float Drag { get => drag; set => drag = value; }
+    public float MaxVel { get => maxVel; set => maxVel = value; }
+    public float MaxAngAcc { get => maxAngAcc; set => maxAngAcc = value; }
+    public float MaxAngVel { get => maxAngVel; set => maxAngVel = value; }
+    public float AngDrag { get => angDrag; set => angDrag = value; }
 
     // Start is called before the first frame update
     void Start()
