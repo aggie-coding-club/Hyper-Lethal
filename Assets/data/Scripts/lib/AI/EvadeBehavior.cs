@@ -22,7 +22,7 @@ public class EvadeBehavior : Steering
         steering.linear =  predicted_location_self - predicted_location_target;
         
         steering.linear.Normalize();
-        steering.linear *= steeringbase.maxAcc;
+        steering.linear *= steeringbase.MaxAcc;
         steering.angular = 0;
         return steering;
     }

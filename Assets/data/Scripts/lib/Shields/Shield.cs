@@ -2,15 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shield : MonoBehaviour
+public abstract class Shield : MonoBehaviour
 {
-
     [SerializeField] private float maxShield = 100;
     [SerializeField] private float rechargeRatePerc = 0.1f;
     [SerializeField] private float rechargeDelay = 2;
     [SerializeField] private float shutdownDelay = 6;
 
-    
+    // Will be converted into private variables during optimization,
+    // this is just so I can view the states in real time without logging.
+    [SerializeField] private float shieldHp;
+    [SerializeField] private float rechargeTimer;
+    [SerializeField] private float shutdownTimer;
+
+    public float MaxShield { get => maxShield; set => maxShield = value; }
+    public float RechargeRatePerc { get => rechargeRatePerc; set => rechargeRatePerc = value; }
+    public float RechargeDelay { get => rechargeDelay; set => rechargeDelay = value; }
+    public float ShutdownDelay { get => shutdownDelay; set => shutdownDelay = value; }
+    public float ShieldHp { get => shieldHp; set => shieldHp = value; }
+    public float RechargeTimer { get => rechargeTimer; set => rechargeTimer = value; }
+    public float ShutdownTimer { get => shutdownTimer; set => shutdownTimer = value; }
     private enum States : short
     {
         normal = 0,
@@ -19,31 +30,24 @@ public class Shield : MonoBehaviour
     }
     private States state;
 
-    // Will be converted into private variables during optimization,
-    // this is just so I can view the states in real time without logging.
-    [SerializeField] private float shield;
-    [SerializeField] private float rechargeTimer;
-    [SerializeField] private float shutdownTimer;
-
     // Start is called before the first frame update
     void Start()
     {
         state = States.normal;
-        shield = maxShield;
+        shieldHp = maxShield;
         
         rechargeTimer = rechargeDelay;
         shutdownTimer = shutdownDelay;
     }
 
-    private void FixedUpdate()
+    public void updateShield()
     {
-
         if (state == States.shutdown)
         { // Will stay in shutdown until shutdown timer expires
             shutdown();
         }
         else if (state == States.recharging)
-        { // Recharge until damaged again or shield is at max 
+        { // Recharge until damaged again or shieldHp is at max 
             recharge();
         }
     }
@@ -54,13 +58,13 @@ public class Shield : MonoBehaviour
         {
             rechargeTimer -= Time.deltaTime;
         }
-        else if (shield < maxShield)
+        else if (shieldHp < maxShield)
         {
-            shield += rechargeRatePerc * maxShield * Time.deltaTime;
+            shieldHp += rechargeRatePerc * maxShield * Time.deltaTime;
         }
         else 
         {
-            shield = maxShield;
+            shieldHp = maxShield;
             state = States.normal;
             rechargeTimer = rechargeDelay;
         }
@@ -83,12 +87,12 @@ public class Shield : MonoBehaviour
     {
         float overkill = 0;
 
-        shield -= damage;
+        shieldHp -= damage;
         
-        if (shield < 0.1E-9f)
+        if (shieldHp < 0.1E-9f)
         {
-            overkill = -shield;
-            shield = 0;
+            overkill = -shieldHp;
+            shieldHp = 0;
             state = States.shutdown;
         } else 
         {
@@ -97,4 +101,6 @@ public class Shield : MonoBehaviour
         }
         return overkill;
     }
+    public abstract void FixedUpdate();
+
 }
