@@ -6,18 +6,18 @@ using UnityEngine;
 public abstract class Engine : MonoBehaviour
 {
     private Rigidbody2D rb2D;
-    
+
     private Vector2 acceleration_real = Vector2.zero;
     private float angAcc_real = 0f;
 
-    private float maxAcc = 20f;
-    private float maxVel = 40f;
-    private float drag = 0.8f;
+    [SerializeField] private float maxAcc = 20f;
+    [SerializeField] private float maxVel = 40f;
+    [SerializeField] private float drag = 0.8f;
 
 
-    private float maxAngAcc = 720f;
-    private float maxAngVel = 270f;
-    private float angDrag = 3;
+    [SerializeField] private float maxAngAcc = 720f;
+    [SerializeField] private float maxAngVel = 270f;
+    [SerializeField] private float angDrag = 3;
 
     public float rotation_input;
 
