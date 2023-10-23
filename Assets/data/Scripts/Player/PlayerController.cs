@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private controlScheme controller = controlScheme.Keyboard;
-    [SerializeField] private Camera camera;
+    [SerializeField] private Camera playerCamera;
     private Rigidbody2D rb2d;   
     private Engine engine;
     private HealthManager healthManager;
@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
     Vector2 getMouseAbsolute()
     {
         Vector3 mouseRelative = Input.mousePosition;
-        mouseRelative.z = camera.nearClipPlane;
-        return camera.ScreenToWorldPoint(mouseRelative);
+        mouseRelative.z = playerCamera.nearClipPlane;
+        return playerCamera.ScreenToWorldPoint(mouseRelative);
     }
 }
