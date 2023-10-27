@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class ArriveBehavior : Steering
 {
-    [SerializeField]
-    private Transform target;
+    [SerializeField] private Transform target;
     [SerializeField] private float targetRadius = 1.5f;
     [SerializeField] private float slowRadius = 5f;
 
@@ -26,9 +25,9 @@ public class ArriveBehavior : Steering
         float targetSpeed;
         // Desired acceleration is reduced within the slow radius
         if (distance > slowRadius)
-            targetSpeed = steeringbase.maxAcc;
+            targetSpeed = steeringbase.MaxAcc;
         else
-            targetSpeed = steeringbase.maxAcc * 
+            targetSpeed = steeringbase.MaxAcc * 
                 (distance / slowRadius);
 
         // Sets the desired acceleration and reduces it based on current velocity.
@@ -41,10 +40,10 @@ public class ArriveBehavior : Steering
 
         // Reduces the magnitude and prevents this behavior
         // from overpowering other steering behaviors
-        if (steering.linear.magnitude > steeringbase.maxAcc)
+        if (steering.linear.magnitude > steeringbase.MaxAcc)
         {
             steering.linear.Normalize();
-            steering.linear *= steeringbase.maxAcc;
+            steering.linear *= steeringbase.MaxAcc;
         }
         steering.angular = 0;
         return steering;

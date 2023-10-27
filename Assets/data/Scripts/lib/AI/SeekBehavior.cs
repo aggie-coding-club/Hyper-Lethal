@@ -12,7 +12,7 @@ public class SeekBehavior : Steering
         steering.linear = target.transform.position - transform.position;
         
         steering.linear.Normalize();
-        steering.linear *= steeringbase.maxAcc;
+        steering.linear *= steeringbase.MaxAcc;
         steering.angular = 0;
         return steering;
     }

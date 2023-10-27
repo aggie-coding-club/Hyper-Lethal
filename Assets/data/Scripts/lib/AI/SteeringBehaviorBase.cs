@@ -8,16 +8,16 @@ public class SteeringBehaviorBase : MonoBehaviour
     private Steering[] steerings;
     private Engine engine;
     
-    public float maxAcc;
-    public float maxAngAcc;
+    public float MaxAcc;
+    public float MaxAngAcc;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         steerings = GetComponents<Steering>();
         engine = GetComponent<Engine>();
 
-        maxAcc = engine.maxAcc;
-        maxAngAcc = engine.maxAngAcc;
+        MaxAcc = engine.MaxAcc;
+        MaxAngAcc = engine.MaxAngAcc;
     }
     private void FixedUpdate()
     {
