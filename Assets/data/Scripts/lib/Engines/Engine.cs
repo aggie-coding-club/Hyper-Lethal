@@ -52,8 +52,11 @@ public abstract class Engine : MonoBehaviour
         float angAcc_temp = -rotation_input;
         angAcc_real = Mathf.Clamp(angAcc_temp, -maxAngAcc, maxAngAcc);
 
+        ;
+
         // Precalculate angular velocity
-        float angVel = rb2D.angularVelocity + (angAcc_real - rb2D.angularVelocity * angDrag) * Time.deltaTime;
+        // I made drag depend on the distance bewteen the angular velocity and the extrema.
+        float angVel = rb2D.angularVelocity + (angAcc_real - (rb2D.angularVelocity-MathF.Sign(angAcc_real)*maxAngVel) * angDrag) * Time.deltaTime;
         
         // Clamp it to max
         rb2D.angularVelocity = Mathf.Clamp(angVel, -maxAngVel, maxAngVel);
