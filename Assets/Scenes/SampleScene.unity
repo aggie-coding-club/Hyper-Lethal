@@ -576,7 +576,7 @@ GameObject:
   - component: {fileID: 8596158303725225896}
   - component: {fileID: 8596158303725225897}
   m_Layer: 7
-  m_Name: Kami
+  m_Name: Dummy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -4,22 +4,26 @@ using UnityEngine;
 
 public class EnemyCollision : MonoBehaviour
 {
+    [SerializeField] private bool suicide = false;
+    [SerializeField] private float collisionDamage = 0;
+
+    private HealthManager healthManager;
+    void Start()
+    {
+        healthManager = gameObject.GetComponent<HealthManager>();
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.name);
         switch (collision.gameObject.tag)
         {
             case ("Player"):
-            switch (gameObject.name)
-            {
-                case ("Kami"):
+                collision.gameObject.GetComponent<HealthManager>().damage(collisionDamage);
+                if (suicide)
                     Destroy(gameObject);
-                    break;
-            }
             break;
             case ("PlayerProjectile"):
                 Projectile proj = collision.gameObject.GetComponent<Projectile>();
-                gameObject.GetComponent<HealthManager>().damage(proj.damage);
+                healthManager.damage(proj.damage);
                 break;
         }
     }
