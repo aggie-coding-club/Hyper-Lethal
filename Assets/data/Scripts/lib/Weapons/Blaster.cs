@@ -15,7 +15,7 @@ public class Blaster : Weapon
                 GameObject proj = Instantiate(projectile, firePoint.position, firePoint.rotation);
                 Transform trans = proj.GetComponent<Transform>();
                 Rigidbody2D prb2D = proj.GetComponent<Rigidbody2D>();
-                Projectile projData = proj.GetComponent<Projectile>();
+                BlasterProj projData = proj.GetComponent<BlasterProj>();
 
                 float offset = 0;
                 if (pCount > 1)

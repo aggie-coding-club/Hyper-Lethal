@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public abstract class Projectile : MonoBehaviour
 {
     public float damage;
     public float pLifetime;
 
-    private void FixedUpdate()
+    public void updateProjectile()
     {
         if (pLifetime > 0)
             pLifetime -= Time.deltaTime;
@@ -18,4 +18,5 @@ public class Projectile : MonoBehaviour
     {
         Destroy(gameObject);
     }
+    public abstract void FixedUpdate();
 }
