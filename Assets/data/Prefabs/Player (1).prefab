@@ -142,6 +142,8 @@ GameObject:
   - component: {fileID: 6223646284397250541}
   - component: {fileID: 4252398297692806154}
   - component: {fileID: 4252398297692806153}
+  - component: {fileID: 2415987366460454375}
+  - component: {fileID: 1346232877149158295}
   - component: {fileID: 4252398297692806175}
   - component: {fileID: 1611233021944163189}
   - component: {fileID: 4761804313969308335}
@@ -283,7 +285,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: 1
-  camera: {fileID: 0}
+  playerCamera: {fileID: 0}
+--- !u!114 &2415987366460454375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7916954351839405784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04b2c76e8ecee8640890284329bc1630, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHull: 100
+  regenRatePerc: 0.01
+  hullHp: 0
+  broken: 0
+--- !u!114 &1346232877149158295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7916954351839405784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a5031982973223409fed461869e6213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxShield: 100
+  rechargeRatePerc: 0.1
+  rechargeDelay: 2
+  shutdownDelay: 6
+  shieldHp: 0
+  rechargeTimer: 0
+  shutdownTimer: 0
 --- !u!114 &4252398297692806175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,6 +345,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8348fead79af7c94ab60567a3504e972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxAcc: 20
+  maxVel: 40
+  drag: 0.8
+  maxAngAcc: 720
+  maxAngVel: 270
+  angDrag: 3
   rotation_input: 0
   impulse_vector: {x: 0, y: 0}
 --- !u!114 &4761804313969308335
