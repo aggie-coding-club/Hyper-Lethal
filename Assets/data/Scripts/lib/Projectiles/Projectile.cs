@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public abstract class Projectile : MonoBehaviour
 {
     public float damage;
     public float pLifetime;
@@ -13,7 +13,7 @@ public class Projectile : MonoBehaviour
         bombTracker = FindObjectOfType<arcBomb>().GetComponent<arcBomb>();
     }
 
-    private void FixedUpdate()
+    public void updateProjectile()
     {
         if (pLifetime > 0)
         {
@@ -34,4 +34,5 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject);
 
     }
+    public abstract void FixedUpdate();
 }

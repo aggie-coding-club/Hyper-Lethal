@@ -64,11 +64,10 @@ public class PlayerController : MonoBehaviour
                 if (Mathf.Abs(delta) > 180)
                     delta-=Mathf.Sign(delta)*360;
                 
-                // Linearly ramp to maximum angular velocity depending on the delta of rotation
-                rotationInput = delta/180*engine.MaxAngAcc;
+                rotationInput = delta/90*engine.MaxAngAcc;
 
                 // Start slowing the angular velocity
-                if (Mathf.Abs(delta) < 90)
+                if (Mathf.Abs(delta) < 45)
                     rotationInput += rb2d.angularVelocity;
                 break;
             default:

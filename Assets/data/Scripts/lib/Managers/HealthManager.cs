@@ -17,7 +17,8 @@ public class HealthManager : MonoBehaviour
 
     public bool damage(float damage) 
     {
-        dead = hull.damage((shield) ? shield.damage(damage) : damage);
+        float overkill = (shield) ? shield.damage(damage) : damage;
+        dead = hull.damage(overkill);
         if (dead)
             Destroy(gameObject);
         return dead;

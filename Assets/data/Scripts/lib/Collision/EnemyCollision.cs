@@ -4,35 +4,26 @@ using UnityEngine;
 
 public class EnemyCollision : MonoBehaviour
 {
+    [SerializeField] private bool suicide = false;
+    [SerializeField] private float collisionDamage = 0;
+
+    private HealthManager healthManager;
+    void Start()
+    {
+        healthManager = gameObject.GetComponent<HealthManager>();
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.name);
         switch (collision.gameObject.tag)
         {
             case ("Player"):
-                switch (gameObject.name)
-                {
-                    case ("Kami"):
-                        Destroy(gameObject);
-                        break;
-                }
-                break;
+                collision.gameObject.GetComponent<HealthManager>().damage(collisionDamage);
+                if (suicide)
+                    Destroy(gameObject);
+            break;
             case ("PlayerProjectile"):
-                if (collision.gameObject.GetComponent<Projectile>() != null)
-                {
-                    Projectile proj = collision.gameObject.GetComponent<Projectile>();
-                    gameObject.GetComponent<HealthManager>().damage(proj.damage);
-                }
-                else if (collision.gameObject.GetComponentInParent<Projectile>() != null)
-                {
-                    Projectile proj = collision.gameObject.GetComponentInParent<Projectile>();
-                    gameObject.GetComponent<HealthManager>().damage(proj.damage);
-                }
-                else
-                {
-                    projectileBehavior proj = collision.gameObject.GetComponent<projectileBehavior>();
-                    gameObject.GetComponent<HealthManager>().damage(proj.returnExplodeDamage());
-                }
+                Projectile proj = collision.gameObject.GetComponent<Projectile>();
+                healthManager.damage(proj.damage);
                 break;
         }
     }
