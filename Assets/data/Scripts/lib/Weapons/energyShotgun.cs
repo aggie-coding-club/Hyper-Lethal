@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Blaster : Weapon
+public class energyShotgun : Weapon
 {
-    [SerializeField] private float spreadDeg = 15;
+    [SerializeField] float pushMagnitude = 2f;
+    [SerializeField] float increaseMagnitude = 2f;
     public override void shoot()
     {
         if (fireTimer < 0.1E-9)
@@ -15,21 +16,22 @@ public class Blaster : Weapon
                 GameObject proj = Instantiate(projectile, firePoint.position, firePoint.rotation);
                 Transform trans = proj.GetComponent<Transform>();
                 Rigidbody2D prb2D = proj.GetComponent<Rigidbody2D>();
-                BlasterProj projData = proj.AddComponent<BlasterProj>();
+                energyShotgunProj projData = proj.AddComponent<energyShotgunProj>();
 
                 float offset = 0;
-                if (pCount > 1)
-                    offset = Mathf.Lerp(-spreadDeg, spreadDeg, (i) / (float)(pCount - 1));
+
                 trans.Rotate(0, 0, offset + inaccuracy * Random.Range(-180, 180));
                 prb2D.velocity = trans.up * pVelocity;
                 trans.localScale *= pSize;
 
                 projData.damage = damage;
                 projData.pLifetime = pLifetime;
-
+                projData.PushMagnitude = pushMagnitude;
+                projData.IncreaseMagnitude = increaseMagnitude;
 
             }
 
         }
     }
 }
+

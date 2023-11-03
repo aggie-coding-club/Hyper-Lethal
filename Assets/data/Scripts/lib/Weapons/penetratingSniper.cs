@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Blaster : Weapon
+public class penetratingSniper : Weapon
 {
-    [SerializeField] private float spreadDeg = 15;
+    [SerializeField] int pierceAmount = 2;
+    [SerializeField] float pierceMultiplier = 0.8f;
     public override void shoot()
     {
         if (fireTimer < 0.1E-9)
@@ -15,21 +16,19 @@ public class Blaster : Weapon
                 GameObject proj = Instantiate(projectile, firePoint.position, firePoint.rotation);
                 Transform trans = proj.GetComponent<Transform>();
                 Rigidbody2D prb2D = proj.GetComponent<Rigidbody2D>();
-                BlasterProj projData = proj.AddComponent<BlasterProj>();
+                sniperProj projData = proj.AddComponent<sniperProj>();
 
-                float offset = 0;
-                if (pCount > 1)
-                    offset = Mathf.Lerp(-spreadDeg, spreadDeg, (i) / (float)(pCount - 1));
-                trans.Rotate(0, 0, offset + inaccuracy * Random.Range(-180, 180));
+                trans.Rotate(0, 0, inaccuracy * Random.Range(-180, 180));
                 prb2D.velocity = trans.up * pVelocity;
                 trans.localScale *= pSize;
 
                 projData.damage = damage;
                 projData.pLifetime = pLifetime;
-
-
+                projData.PenetrateTimes = pierceAmount;
+                projData.PenetrationMultipler = pierceMultiplier;
             }
 
         }
     }
 }
+
