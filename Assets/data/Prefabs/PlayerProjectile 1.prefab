@@ -64,11 +64,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5352774961424907871}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bd6e10c4bd17c2418fa7542b1e3c6f6, type: 3}
+  m_Script: {fileID: 11500000, guid: e7d4b7de835f49c44ac4e1268f023ae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
-  pLifetime: 0
+  damage: 10
+  pLifetime: 5
 --- !u!1 &5993237144491399696
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,4 +187,7 @@ MonoBehaviour:
   amplitude: 6
   endPoint: 3.1415927
   selfCollisionBuffer: 0.2
+  explosionExpandTimer: 0.5
+  explosionDamage: 200
+  explode: 0
   signForWave: 0

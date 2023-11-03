@@ -17,13 +17,27 @@ public class EnemyCollision : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case ("Player"):
-                collision.gameObject.GetComponent<HealthManager>().damage(collisionDamage);
-                if (suicide)
+            switch (gameObject.name)
+            {
+                case ("Kami"):
                     Destroy(gameObject);
+                    break;
+            }
             break;
             case ("PlayerProjectile"):
                 Projectile proj = collision.gameObject.GetComponent<Projectile>();
-                healthManager.damage(proj.damage);
+                gameObject.GetComponent<HealthManager>().damage(proj.damage);
+                break;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        switch (collision.gameObject.tag)
+        {
+            case ("PlayerProjectile"):
+                Projectile proj = collision.gameObject.GetComponent<Projectile>();
+                gameObject.GetComponent<HealthManager>().damage(proj.damage);
+                //print(proj.damage);
                 break;
         }
     }

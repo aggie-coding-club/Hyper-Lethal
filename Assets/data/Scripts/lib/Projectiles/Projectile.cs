@@ -10,7 +10,15 @@ public abstract class Projectile : MonoBehaviour
     arcBomb bombTracker;
     private void Start()
     {
-        bombTracker = FindObjectOfType<arcBomb>().GetComponent<arcBomb>();
+        try
+        {
+            bombTracker = FindObjectOfType<arcBomb>().GetComponent<arcBomb>();
+        }
+        catch (System.NullReferenceException)
+        {
+
+
+        }
     }
 
     public void updateProjectile()
@@ -21,7 +29,10 @@ public abstract class Projectile : MonoBehaviour
         }
         else
         {
-            bombTracker.disablePair(gameObject);
+            if (bombTracker != null)
+            {
+                bombTracker.disablePair(gameObject);
+            }
             Destroy(gameObject);
         }
      
