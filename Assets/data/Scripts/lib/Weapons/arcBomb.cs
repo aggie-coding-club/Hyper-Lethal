@@ -20,13 +20,13 @@ public class arcBomb : Weapon
             
             for (int i = 0; i < pCount; ++i)
             {
-                
+                print(i);
                 GameObject proj = Instantiate(projectile, firePoint.position, firePoint.rotation);
                 //print(proj.gameObject);
                 //projectile 1
                 Transform trans = proj.GetComponent<Transform>();
                 Rigidbody2D prb2D = proj.GetComponent<Rigidbody2D>();
-                Projectile projData = proj.GetComponent<Projectile>();
+                arcBombProj projData = proj.GetComponent<arcBombProj>();
                 behavior = proj.GetComponentInChildren<projectileBehavior>();
                 bombs.Add(proj);
                 //projectile2
@@ -48,7 +48,7 @@ public class arcBomb : Weapon
 
             }
             
-            print(bombs.Count);
+            //print(bombs.Count);
         }
     }
     public void disablePair(GameObject bomb)

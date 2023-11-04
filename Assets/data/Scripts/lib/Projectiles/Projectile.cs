@@ -8,6 +8,7 @@ public abstract class Projectile : MonoBehaviour
     public float damage;
     public float pLifetime;
     arcBomb bombTracker;
+<<<<<<< Updated upstream
     private void Start()
     {
         try
@@ -20,7 +21,21 @@ public abstract class Projectile : MonoBehaviour
 
         }
     }
+=======
+>>>>>>> Stashed changes
 
+    private void Start()
+    {
+        try
+        {
+            bombTracker = FindObjectOfType<arcBomb>().GetComponent<arcBomb>();
+        }
+        catch (System.NullReferenceException)
+        {
+
+
+        }
+    }
     public void updateProjectile()
     {
         if (pLifetime > 0)
@@ -35,6 +50,7 @@ public abstract class Projectile : MonoBehaviour
             }
             Destroy(gameObject);
         }
+<<<<<<< Updated upstream
      
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -44,6 +60,17 @@ public abstract class Projectile : MonoBehaviour
         Destroy(gameObject.GetComponentInParent<Transform>().gameObject);
         Destroy(gameObject);
 
+=======
+            
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        bombTracker.disablePair(gameObject);
+
+        Destroy(gameObject.GetComponentInParent<Transform>().gameObject);
+        Destroy(gameObject);
+            
+>>>>>>> Stashed changes
     }
     public abstract void FixedUpdate();
 }

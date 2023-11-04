@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 
 public class EnemyCollision : MonoBehaviour
@@ -25,8 +26,17 @@ public class EnemyCollision : MonoBehaviour
             }
             break;
             case ("PlayerProjectile"):
-                Projectile proj = collision.gameObject.GetComponent<Projectile>();
-                gameObject.GetComponent<HealthManager>().damage(proj.damage);
+
+                if (collision.gameObject.GetComponent<projectileBehavior>())
+                {
+                    projectileBehavior proj = collision.gameObject.GetComponent<projectileBehavior>();
+                    healthManager.damage(proj.returnExplodeDamage());
+                }
+                else
+                {
+                    Projectile proj = collision.gameObject.GetComponent<Projectile>();
+                    healthManager.damage(proj.damage);
+                }
                 break;
         }
     }
@@ -37,6 +47,23 @@ public class EnemyCollision : MonoBehaviour
             case ("PlayerProjectile"):
                 Projectile proj = collision.gameObject.GetComponent<Projectile>();
                 gameObject.GetComponent<HealthManager>().damage(proj.damage);
+<<<<<<< Updated upstream
+                break;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        switch (collision.gameObject.tag)
+        {
+            case ("PlayerProjectile"):
+                Projectile proj = collision.gameObject.GetComponent<Projectile>();
+                gameObject.GetComponent<HealthManager>().damage(proj.damage);
+=======
+                if(collision.gameObject.GetComponent<sniperProj>())
+                {
+                    collision.gameObject.GetComponent<sniperProj>().updateDamage();
+                }
+>>>>>>> Stashed changes
                 //print(proj.damage);
                 break;
         }

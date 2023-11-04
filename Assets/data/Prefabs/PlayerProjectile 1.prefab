@@ -10,7 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5521952034980954156}
   - component: {fileID: 3204543536247859728}
+<<<<<<< Updated upstream
   - component: {fileID: 983018058180191224}
+=======
+  - component: {fileID: 2326434863320370217}
+>>>>>>> Stashed changes
   m_Layer: 6
   m_Name: PlayerProjectile 1
   m_TagString: PlayerProjectile
@@ -55,7 +59,11 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+<<<<<<< Updated upstream
 --- !u!114 &983018058180191224
+=======
+--- !u!114 &2326434863320370217
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -67,8 +75,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7d4b7de835f49c44ac4e1268f023ae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   damage: 10
   pLifetime: 5
+=======
+  damage: 20
+  pLifetime: 1
+>>>>>>> Stashed changes
 --- !u!1 &5993237144491399696
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,8 +196,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b505cd9c34ce9244a8b4f1e7c1c5290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frequency: 6
-  amplitude: 6
+  frequency: 500
+  amplitude: 12
   endPoint: 3.1415927
   selfCollisionBuffer: 0.2
   explosionExpandTimer: 0.5
