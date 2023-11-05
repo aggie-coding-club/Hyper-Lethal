@@ -33,7 +33,7 @@ public class projectileBehavior : MonoBehaviour
         {
 
 
-            gameObject.transform.localPosition = new Vector3(signForWave * amplitude * (Mathf.Sin(stopWave(frequency * startTime*Time.deltaTime, endPoint))), 0, 0);
+            gameObject.transform.localPosition = new Vector3(signForWave * amplitude * (Mathf.Sin(stopWave(frequency * startTime, endPoint))), 0, 0);
             startTime += Time.fixedDeltaTime;
             //Debug.Log(startTime);
             List<GameObject> bombList = arc.returnBombList();

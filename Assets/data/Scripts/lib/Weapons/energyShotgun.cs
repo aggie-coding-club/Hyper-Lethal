@@ -21,7 +21,8 @@ public class energyShotgun : Weapon
                 energyShotgunProj projData = proj.AddComponent<energyShotgunProj>();
 
                 float offset = 0;
-
+                if (pCount > 1)
+                    offset = Mathf.Lerp(-spreadDeg, spreadDeg, (i) / (float)(pCount - 1));
                 trans.Rotate(0, 0, offset + inaccuracy * Random.Range(-180, 180));
                 prb2D.velocity = trans.up * pVelocity;
                 trans.localScale *= pSize;
