@@ -47,23 +47,11 @@ public class EnemyCollision : MonoBehaviour
             case ("PlayerProjectile"):
                 Projectile proj = collision.gameObject.GetComponent<Projectile>();
                 gameObject.GetComponent<HealthManager>().damage(proj.damage);
-<<<<<<< Updated upstream
-                break;
-        }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        switch (collision.gameObject.tag)
-        {
-            case ("PlayerProjectile"):
-                Projectile proj = collision.gameObject.GetComponent<Projectile>();
-                gameObject.GetComponent<HealthManager>().damage(proj.damage);
-=======
+
                 if(collision.gameObject.GetComponent<sniperProj>())
                 {
                     collision.gameObject.GetComponent<sniperProj>().updateDamage();
                 }
->>>>>>> Stashed changes
                 //print(proj.damage);
                 break;
         }

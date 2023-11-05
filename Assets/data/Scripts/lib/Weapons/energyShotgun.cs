@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class energyShotgun : Weapon
 {
-<<<<<<< Updated upstream
-=======
+
     [SerializeField] float pushMagnitude = 50f;
     [SerializeField] float increaseMagnitude = 2f;
->>>>>>> Stashed changes
     [SerializeField] private float spreadDeg = 15;
     public override void shoot()
     {

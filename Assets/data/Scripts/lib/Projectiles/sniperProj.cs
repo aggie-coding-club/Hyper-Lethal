@@ -13,19 +13,8 @@ public class sniperProj : Projectile
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-<<<<<<< Updated upstream
-        if (collision.tag == "Enemy")
-        {
-            penetrationDamage(penetrationMultipler);
-            --penetrateTimes;
-            //print("hit. Remaining:" + penetrateTimes);
-        }
-=======
 
-        
         --penetrateTimes;
-
->>>>>>> Stashed changes
         if (penetrateTimes == 0)
         {
             Destroy(gameObject.GetComponentInParent<Transform>().gameObject);
@@ -34,11 +23,8 @@ public class sniperProj : Projectile
         }
 
     }
-<<<<<<< Updated upstream
-    private void penetrationDamage(float multiplier)
-=======
+
     public void updateDamage()
->>>>>>> Stashed changes
     {
         damage *= penetrationMultipler;
     }
