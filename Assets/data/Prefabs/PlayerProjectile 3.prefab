@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7364092562124208141}
   - component: {fileID: 4068145761951493862}
   - component: {fileID: 5430479013859178397}
-  - component: {fileID: 1355420592440572728}
   m_Layer: 6
   m_Name: PlayerProjectile 3
   m_TagString: PlayerProjectile
@@ -234,19 +233,3 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &1355420592440572728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5352774961424907871}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10082b0337db0e8428edc159ec5ee9ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 50
-  pLifetime: 1
-  penetrateTimes: 2
-  penetrationMultipler: 0.8

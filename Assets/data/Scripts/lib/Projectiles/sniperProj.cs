@@ -6,6 +6,10 @@ public class sniperProj : Projectile
 {
     [SerializeField] int penetrateTimes = 1;
     [SerializeField] float penetrationMultipler = 0.8f;
+
+    public int PenetrateTimes { get => penetrateTimes; set => penetrateTimes = value; }
+    public float PenetrationMultipler { get => penetrationMultipler; set => penetrationMultipler = value; }
+
     public override void FixedUpdate()
     {
         updateProjectile();
@@ -21,7 +25,7 @@ public class sniperProj : Projectile
             Destroy(gameObject);
             //print("delete bullet");
         }
-
+        
     }
 
     public void updateDamage()

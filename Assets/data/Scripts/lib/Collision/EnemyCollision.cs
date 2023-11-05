@@ -18,12 +18,9 @@ public class EnemyCollision : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case ("Player"):
-            switch (gameObject.name)
-            {
-                case ("Kami"):
+                collision.gameObject.GetComponent<HealthManager>().damage(collisionDamage);
+                if (suicide)
                     Destroy(gameObject);
-                    break;
-            }
             break;
             case ("PlayerProjectile"):
 

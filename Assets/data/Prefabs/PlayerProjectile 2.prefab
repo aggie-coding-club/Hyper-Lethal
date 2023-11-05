@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 5521952034980954156}
   - component: {fileID: 416081154575251193}
   - component: {fileID: 7364092562124208141}
+  - component: {fileID: 4015143314524796729}
   - component: {fileID: 214752236498497474}
   - component: {fileID: 7839187374445802280}
-  - component: {fileID: 4015143314524796729}
-  - component: {fileID: 3419413548423583898}
   m_Layer: 6
   m_Name: PlayerProjectile 2
   m_TagString: PlayerProjectile
@@ -110,6 +109,30 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!68 &4015143314524796729
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5352774961424907871}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0.61
+  m_Points:
+  - {x: 0, y: 0}
+  - {x: -0.3, y: 2}
+  - {x: 0.3, y: 2}
+  - {x: 0, y: 0}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!198 &214752236498497474
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -4889,43 +4912,3 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!68 &4015143314524796729
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5352774961424907871}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0.61
-  m_Points:
-  - {x: 0, y: 0}
-  - {x: -0.3, y: 2}
-  - {x: 0.3, y: 2}
-  - {x: 0, y: 0}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
---- !u!114 &3419413548423583898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5352774961424907871}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65398b2439d8d3d4c9298344c66c12f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 30
-  pLifetime: 0.2
-  pushMagnitude: 300
-  increaaseMagnitude: 10

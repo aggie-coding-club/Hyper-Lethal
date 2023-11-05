@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public abstract class Projectile : MonoBehaviour
@@ -23,26 +22,16 @@ public abstract class Projectile : MonoBehaviour
     public void updateProjectile()
     {
         if (pLifetime > 0)
-        {
             pLifetime -= Time.deltaTime;
-        }
         else
-        {
-            if (bombTracker != null)
-            {
-                bombTracker.disablePair(gameObject);
-            }
             Destroy(gameObject);
-        }  
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
-        bombTracker.disablePair(gameObject);
-        Destroy(gameObject.GetComponentInParent<Transform>().gameObject);
+        
         Destroy(gameObject);
      
     }
   
-    public abstract void FixedUpdate();
+    public abstract void FixedUpdate();{}
 }

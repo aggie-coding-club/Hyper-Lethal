@@ -18,18 +18,18 @@ public class energyShotgun : Weapon
                 GameObject proj = Instantiate(projectile, firePoint.position, firePoint.rotation);
                 Transform trans = proj.GetComponent<Transform>();
                 Rigidbody2D prb2D = proj.GetComponent<Rigidbody2D>();
-                energyShotgunProj projData = proj.GetComponent<energyShotgunProj>();
+                energyShotgunProj projData = proj.AddComponent<energyShotgunProj>();
 
                 float offset = 0;
-                if (pCount > 1)
-                    offset = Mathf.Lerp(-spreadDeg, spreadDeg, (i) / (float)(pCount - 1));
+
                 trans.Rotate(0, 0, offset + inaccuracy * Random.Range(-180, 180));
                 prb2D.velocity = trans.up * pVelocity;
                 trans.localScale *= pSize;
 
                 projData.damage = damage;
                 projData.pLifetime = pLifetime;
-
+                projData.PushMagnitude = pushMagnitude;
+                projData.IncreaseMagnitude = increaseMagnitude;
 
             }
 
