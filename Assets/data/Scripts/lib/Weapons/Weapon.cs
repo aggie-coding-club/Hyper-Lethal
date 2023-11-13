@@ -13,13 +13,24 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] protected float pLifetime = 10;
     [SerializeField] protected float pSize = 1;
 
-    [SerializeField] protected int  pCount = 3;
-    [SerializeField] protected float accuracy  = 1;
+    [SerializeField] protected int pCount = 3;
+    [SerializeField] protected float accuracy = 1;
 
     [SerializeField] protected float fireTimer;
 
     protected float fireDelay;
     protected float inaccuracy;
+
+    public float Damage { get => damage;}
+    public float FireRate { get => fireRate;}
+    public float PVelocity { get => pVelocity;}
+    public float PLifetime { get => pLifetime;}
+    public float PSize { get => pSize;}
+    public int PCount { get => pCount;}
+    public float Accuracy { get => accuracy;}
+    public float FireTimer { get => fireTimer;}
+    public float FireDelay { get => fireDelay;}
+    public float Inaccuracy { get => inaccuracy;}
 
     // Start is called before the first frame update
     void Start()
