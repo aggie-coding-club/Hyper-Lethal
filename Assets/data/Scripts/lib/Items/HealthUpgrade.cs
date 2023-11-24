@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealthUpgrade : Upgradable {
 
-    [SerializeField] float health;
+    [SerializeField] float health = 30;
 
     public override void updateStats(Hull hull, Engine engine) {
         hull.IncreaseHull(health);
