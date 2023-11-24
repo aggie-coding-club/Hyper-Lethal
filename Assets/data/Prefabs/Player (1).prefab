@@ -336,8 +336,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHull: 100
   regenRatePerc: 0.01
-  hull: 0
-  broken: 0
 --- !u!114 &4252398297692806175
 MonoBehaviour:
   m_ObjectHideFlags: 0

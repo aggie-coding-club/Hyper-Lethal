@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 6383263921480728312}
   - component: {fileID: 8285342276005703976}
   - component: {fileID: -2690384902485519621}
+  - component: {fileID: -384789536256773973}
   m_Layer: 0
   m_Name: speedUpgrade
   m_TagString: Item
@@ -177,7 +178,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 2919061089680346538}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7acd9871940fcdf4a82306e3a18323bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e86990a7129cfd40afcf224dbfdd03b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   velMult: 1.2
+--- !u!114 &-384789536256773973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2919061089680346538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c2ea27a20ceb1147b1c8136dff8dd38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

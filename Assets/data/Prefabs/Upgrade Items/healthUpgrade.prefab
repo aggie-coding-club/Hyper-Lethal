@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 1345827611747710681}
   - component: {fileID: 1345827611747710686}
   - component: {fileID: 1345827611747710687}
+  - component: {fileID: -3487833949650488297}
+  - component: {fileID: 6765079594076583365}
   m_Layer: 0
   m_Name: healthUpgrade
   m_TagString: Item
@@ -79,9 +81,34 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1345827611747710684}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0434bf6c68b7b00409d8b87bc39e139a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-3487833949650488297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345827611747710684}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c34ed10a733d07438bb1f9931085b24, type: 3}
+  m_Script: {fileID: 11500000, guid: bee49696813d737479936a23c26acd8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+--- !u!114 &6765079594076583365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345827611747710684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c2ea27a20ceb1147b1c8136dff8dd38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1345827613327157331
