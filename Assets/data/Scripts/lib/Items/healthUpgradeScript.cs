@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Old code, pls use new one
 public class healthUpgradeScript : MonoBehaviour
 {
     // Start is called before the first frame update
