@@ -8,6 +8,8 @@ public class Turret : MonoBehaviour
     [SerializeField] private bool coaxial =  true;
     [SerializeField] private bool autonomous = false;
     [SerializeField] private string targetLayer = "";
+
+    [SerializeField] private float minimumFiringAngle = 3;
     [SerializeField] private float searchPeriod = 2;
     private Weapon turretWeapon;
     private float range = 0;
@@ -41,26 +43,35 @@ public class Turret : MonoBehaviour
             searchTimer += Time.deltaTime;
             // Get the rigid body of the target
             // If coaxial do raycast, if hit, shoot
-            if (coaxial)
-            {
 
-            }
-            else if (target)
-            {
+            if (target)
+            {         
                 Vector2 delta = target.transform.position - transform.position;
                 float angle = -90 + Mathf.Rad2Deg*Mathf.Atan2(delta.y, delta.x) - transform.eulerAngles.z;
 
                 if (Mathf.Abs(angle) > 180)
                     angle-=Mathf.Sign(angle)*360;
                 
-                Debug.Log(target.name);
-                transform.Rotate(new Vector3(0, 0,angle),Space.World);
+                if (!coaxial)
+                    transform.Rotate(new Vector3(0, 0,angle),Space.World);
+                
+                if (MathF.Abs(angle) < minimumFiringAngle)
+                    shoot();
             }
-            
         }
-        else
+        else if (!coaxial)
         {
-            // Manual targeting...
+            Vector3 mouseRelative = Input.mousePosition;
+            mouseRelative.z = Camera.main.nearClipPlane;
+
+            Vector2 delta = Camera.main.ScreenToWorldPoint(mouseRelative) - transform.position;
+
+            float angle = -90 + Mathf.Rad2Deg*Mathf.Atan2(delta.y,delta.x) - transform.eulerAngles.z;
+            
+            if (Mathf.Abs(angle) > 180)
+                angle-=Mathf.Sign(angle)*360;
+            
+            transform.Rotate(new Vector3(0, 0,angle),Space.World);
         }
     }
     private void searchForTargets()
@@ -80,9 +91,6 @@ public class Turret : MonoBehaviour
                 target = t.gameObject;
             }
         }
-        
-        if (target)
-            Debug.Log("Hit!");
     }
     public void shoot()
     {
