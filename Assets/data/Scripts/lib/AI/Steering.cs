@@ -5,6 +5,8 @@ using UnityEngine;
 public abstract class Steering : MonoBehaviour
 {
     public float weight = 1;
+    // This will be used to let steeringBehavior to select a set of steerings (dynamic ai)
+    public float category = 0;
     public abstract SteeringData GetSteering(SteeringBehaviorBase steeringbase);
 }
 

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SteeringBehaviorBase : MonoBehaviour
 {
-    private Rigidbody2D rb;
-    private Steering[] steerings;
-    private Engine engine;
+    protected Rigidbody2D rb;
+    protected Steering[] steerings;
+    protected Engine engine;
     
     public float MaxAcc;
     public float MaxAngAcc;
