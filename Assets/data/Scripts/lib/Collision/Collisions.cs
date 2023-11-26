@@ -20,7 +20,9 @@ public class Collisions : MonoBehaviour
                 break;
             
             default:
-                collision.gameObject.GetComponent<HealthManager>().damage(hull.CollisionDamage);
+                HealthManager hm = collision.gameObject.GetComponent<HealthManager>();
+                if (hm)
+                    hm.damage(hull.CollisionDamage);
                 if (suicide)
                     Destroy(gameObject);
                 break;
