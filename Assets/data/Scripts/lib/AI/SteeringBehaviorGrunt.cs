@@ -47,11 +47,10 @@ public class SteeringBehaviorGrunt : SteeringBehaviorShip
             if ((transform.position-target.transform.position).magnitude < trackingRange)
                 return;
             else
-            {
-                currentAction = AIStates.wandering;
                 target = null;
-            }
         }
+        else
+            currentAction = AIStates.wandering;
 
         LayerMask mask = LayerMask.GetMask(targetLayer);
 

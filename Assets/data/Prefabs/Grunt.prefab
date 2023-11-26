@@ -18,7 +18,8 @@ GameObject:
   - component: {fileID: 1247434104036909903}
   - component: {fileID: 2485394830030471687}
   - component: {fileID: 1247434104036909907}
-  - component: {fileID: 480571311249515689}
+  - component: {fileID: -8611842058418812059}
+  - component: {fileID: 1612670675521110995}
   - component: {fileID: 1247434104036909910}
   - component: {fileID: 1247434104036909906}
   - component: {fileID: 6461001442951737744}
@@ -247,7 +248,7 @@ MonoBehaviour:
   detectionRange: 50
   trackingRange: 70
   targetLayer: Player
---- !u!114 &480571311249515689
+--- !u!114 &-8611842058418812059
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -260,7 +261,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weight: 0.3
-  AIState: 0
+  AIState: 2
+--- !u!114 &1612670675521110995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3191206062147930322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 205529124d15fea4e941a7dcb113a099, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weight: 1
+  AIState: 1
 --- !u!114 &1247434104036909910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,11 +302,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec6b25d6d4265e94885744c1f8bf6475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weight: 0.5
+  weight: 0.2
   AIState: 1
-  wanderRate: 0.4
+  wanderRate: 0.1
   wanderOffset: 3
-  wanderRadius: 3
+  wanderRadius: 4
 --- !u!114 &6461001442951737744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,7 +321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weight: 0.1
   AIState: 2
-  wanderRate: 0.2
+  wanderRate: 0.4
   wanderOffset: 1.5
   wanderRadius: 4
 --- !u!114 &1247434104036909905
@@ -338,8 +353,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weight: 1
   AIState: 2
-  targetRadius: 5
-  slowRadius: 10
+  targetRadius: 8
+  slowRadius: 16
 --- !u!1 &7411890604856135412
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,7 +488,7 @@ MonoBehaviour:
   coaxial: 1
   autonomous: 1
   targetLayer: Player
-  minimumFiringAngle: 5
+  minimumFiringAngle: 10
   searchPeriod: 2
 --- !u!114 &7411890605816954424
 MonoBehaviour:
