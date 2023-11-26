@@ -98,6 +98,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ee36e8d10230284db84fda782922c54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coaxial: 1
+  autonomous: 0
+  targetLayer: 
+  minimumFiringAngle: 3
+  searchPeriod: 2
 --- !u!1 &4252398296957871335
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,6 +147,7 @@ GameObject:
   - component: {fileID: 6223646284397250541}
   - component: {fileID: 4252398297692806154}
   - component: {fileID: 4252398297692806153}
+  - component: {fileID: 9033137419404577748}
   - component: {fileID: 4494288898206141608}
   - component: {fileID: 217768813974428600}
   - component: {fileID: 7589397844124983022}
@@ -285,6 +291,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: 1
   playerCamera: {fileID: 0}
+--- !u!114 &9033137419404577748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7916954351839405784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53b7a6a74db2f0b488b292479752d899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  suicide: 0
 --- !u!114 &4494288898206141608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,8 +357,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHull: 100
   regenRatePerc: 0.01
+  collisionDamage: 10
   hullHp: 0
-  broken: 0
 --- !u!114 &5825436619333406021
 MonoBehaviour:
   m_ObjectHideFlags: 0

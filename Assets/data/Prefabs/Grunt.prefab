@@ -16,11 +16,12 @@ GameObject:
   - component: {fileID: 1247434104036909908}
   - component: {fileID: 2937798484211216612}
   - component: {fileID: 1247434104036909903}
-  - component: {fileID: 4294453919274093037}
+  - component: {fileID: 2485394830030471687}
   - component: {fileID: 1247434104036909907}
-  - component: {fileID: 540980660075316270}
+  - component: {fileID: 480571311249515689}
   - component: {fileID: 1247434104036909910}
   - component: {fileID: 1247434104036909906}
+  - component: {fileID: 6461001442951737744}
   - component: {fileID: 1247434104036909905}
   - component: {fileID: 1247434104036909904}
   m_Layer: 7
@@ -160,12 +161,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2112ae5c2d901f49a6b8d31f3ea01dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAcc: 30
-  maxVel: 45
-  drag: 1
-  maxAngAcc: 720
-  maxAngVel: 180
-  angDrag: 3
+  maxAcc: 15
+  maxVel: 40
+  drag: 0.2
+  maxAngAcc: 360
+  maxAngVel: 120
+  angDrag: 4
   rotation_input: 0
   impulse_vector: {x: 0, y: 0}
 --- !u!114 &1247434104036909908
@@ -201,8 +202,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHull: 30
   regenRatePerc: 0.05
+  collisionDamage: 10
   hullHp: 0
-  broken: 0
 --- !u!114 &1247434104036909903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c56a5c487692e9c4ca5364fd9742e84a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4294453919274093037
+--- !u!114 &2485394830030471687
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -224,11 +225,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3191206062147930322}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e82fe75419ebb6469c80c27ac03bb47, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b7a6a74db2f0b488b292479752d899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   suicide: 0
-  collisionDamage: 5
 --- !u!114 &1247434104036909907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,11 +243,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxAcc: 0
   MaxAngAcc: 0
-  searchPeriod: 2
+  searchPeriod: 1
   detectionRange: 50
   trackingRange: 70
   targetLayer: Player
---- !u!114 &540980660075316270
+--- !u!114 &480571311249515689
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -259,8 +259,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee733d7876518de4281272c3e08df4dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weight: 1
-  AIState: 1
+  weight: 0.3
+  AIState: 0
 --- !u!114 &1247434104036909910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,7 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b385c30dcfb2e304ba6c49d3946c66ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weight: 1
+  weight: 0.8
   AIState: 2
 --- !u!114 &1247434104036909906
 MonoBehaviour:
@@ -290,6 +290,23 @@ MonoBehaviour:
   weight: 0.5
   AIState: 1
   wanderRate: 0.4
+  wanderOffset: 3
+  wanderRadius: 3
+--- !u!114 &6461001442951737744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3191206062147930322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec6b25d6d4265e94885744c1f8bf6475, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weight: 0.1
+  AIState: 2
+  wanderRate: 0.2
   wanderOffset: 1.5
   wanderRadius: 4
 --- !u!114 &1247434104036909905
@@ -304,7 +321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af154c9a5aed3cf41bf95b6dba18e546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weight: 0.2
+  weight: 0.1
   AIState: 2
   prediction: 1
 --- !u!114 &1247434104036909904
@@ -321,8 +338,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weight: 1
   AIState: 2
-  targetRadius: 10
-  slowRadius: 20
+  targetRadius: 5
+  slowRadius: 10
 --- !u!1 &7411890604856135412
 GameObject:
   m_ObjectHideFlags: 0

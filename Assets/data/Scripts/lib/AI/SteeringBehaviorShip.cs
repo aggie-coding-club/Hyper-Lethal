@@ -6,7 +6,6 @@ public class SteeringBehaviorShip : SteeringBehaviorBase
 {
     protected Engine engine;
     
-
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
