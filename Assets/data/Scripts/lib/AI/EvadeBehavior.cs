@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class EvadeBehavior : Steering
 {
-    [SerializeField] private GameObject target;
     float prediction;
     public override SteeringData GetSteering(SteeringBehaviorBase steeringbase)
     {
         SteeringData steering = new SteeringData();
 
+        if (!Target) return steering;
+
         // I want to predict where the target is going to be
-        Vector2 prediction_delta_target = target.GetComponent<Rigidbody2D>().velocity * prediction;
-        Vector2 predicted_location_target = (Vector2) target.transform.position + prediction_delta_target;
+        Vector2 prediction_delta_target = Target.GetComponent<Rigidbody2D>().velocity * prediction;
+        Vector2 predicted_location_target = (Vector2) Target.transform.position + prediction_delta_target;
 
         // And I want to predict where I am going to be
         Vector2 prediction_delta_self = GetComponent<Rigidbody2D>().velocity * prediction;

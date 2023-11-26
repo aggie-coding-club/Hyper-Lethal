@@ -16,10 +16,11 @@ GameObject:
   - component: {fileID: 5627664535442187173}
   - component: {fileID: 8616394929156698126}
   - component: {fileID: 6720677044869569196}
-  - component: {fileID: 5627664535442187169}
+  - component: {fileID: 1749327279480363489}
   - component: {fileID: 5627664535442187170}
   - component: {fileID: 5627664535442187171}
   - component: {fileID: 7015939953757132655}
+  - component: {fileID: 4687238360623835527}
   m_Layer: 7
   m_Name: Kami
   m_TagString: Enemy
@@ -203,7 +204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suicide: 1
   collisionDamage: 10
---- !u!114 &5627664535442187169
+--- !u!114 &1749327279480363489
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -212,11 +213,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5374239377677998995}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 945ff8b2a77f1ad45a7e8970fb2f0970, type: 3}
+  m_Script: {fileID: 11500000, guid: a458c7651ef0c434e908e71bb45f3036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MaxAcc: 0
   MaxAngAcc: 0
+  searchPeriod: 2
+  detectionRange: 40
+  trackingRange: 60
+  targetLayer: Player
 --- !u!114 &5627664535442187170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,6 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weight: 0.3
+  category: 0
   wanderRate: 0.2
   wanderOffset: 3
   wanderRadius: 3
@@ -246,7 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weight: 0.7
-  target: {fileID: 0}
+  category: 1
   prediction: 0.5
 --- !u!114 &7015939953757132655
 MonoBehaviour:
@@ -261,3 +267,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weight: 1
+  category: 0
+--- !u!114 &4687238360623835527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5374239377677998995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee733d7876518de4281272c3e08df4dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weight: 1
+  category: 1

@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class FleeBehavior : Steering
 {
-    [SerializeField] private GameObject target;
     public override SteeringData GetSteering(SteeringBehaviorBase
     steeringbase)
     {
         SteeringData steering = new SteeringData();
-        steering.linear = transform.position - target.transform.position;
+
+        if (!Target) return steering;
+
+        steering.linear = transform.position - Target.transform.position;
         
         steering.linear.Normalize();
         steering.linear *= steeringbase.MaxAcc;

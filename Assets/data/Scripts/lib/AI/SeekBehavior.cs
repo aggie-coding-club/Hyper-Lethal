@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class SeekBehavior : Steering
 {
-    [SerializeField] private GameObject target;
     public override SteeringData GetSteering(SteeringBehaviorBase
     steeringbase)
     {
         SteeringData steering = new SteeringData();
-        steering.linear = target.transform.position - transform.position;
-        
+        steering.linear = Target.transform.position - transform.position;
+
+        if (!Target) return steering;
+
         steering.linear.Normalize();
         steering.linear *= steeringbase.MaxAcc;
         steering.angular = 0;

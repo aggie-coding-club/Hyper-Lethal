@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class FaceBehavior : Steering
 {
-    [SerializeField] private GameObject target;
     // Start is called before the first frame update
     public override SteeringData GetSteering(SteeringBehaviorBase
     steeringbase)
@@ -16,7 +15,9 @@ public class FaceBehavior : Steering
 
         SteeringData steering = new SteeringData();
 
-        Vector2 delta = target.transform.position - transform.position;
+        if (!Target) return steering;
+
+        Vector2 delta = Target.transform.position - transform.position;
         float angle =90 - Mathf.Rad2Deg*Mathf.Atan2(delta.y, delta.x) + rb2D_self.rotation;
 
         if (Mathf.Abs(angle) > 180)

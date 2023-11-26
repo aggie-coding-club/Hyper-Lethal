@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ArriveBehavior : Steering
 {
-    [SerializeField] private Transform target;
     [SerializeField] private float targetRadius = 1.5f;
     [SerializeField] private float slowRadius = 5f;
 
@@ -12,7 +11,10 @@ public class ArriveBehavior : Steering
     steeringbase)
     {
         SteeringData steering = new SteeringData();
-        Vector2 direction = target.position - transform.position;
+        
+        if (!Target) return steering;
+        
+        Vector2 direction = Target.transform.position - transform.position;
         float distance = direction.magnitude;
 
         // Try to stop while in target radius

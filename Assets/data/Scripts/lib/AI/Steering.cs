@@ -6,7 +6,12 @@ public abstract class Steering : MonoBehaviour
 {
     public float weight = 1;
     // This will be used to let steeringBehavior to select a set of steerings (dynamic ai)
-    public float category = 0;
+    public int category = 0;
+
+    protected GameObject target;
+
+    public GameObject Target { get => target; set => target = value; }
+
     public abstract SteeringData GetSteering(SteeringBehaviorBase steeringbase);
 }
 
