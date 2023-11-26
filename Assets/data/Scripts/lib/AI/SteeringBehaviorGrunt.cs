@@ -1,12 +1,11 @@
 using UnityEngine;
 
-public class SteeringBehaviorGrunt : SteeringBehaviorBase
+public class SteeringBehaviorGrunt : SteeringBehaviorShip
 {
     [SerializeField] private float searchPeriod = 2;
-    [SerializeField] private float detectionRange  = 40;
-    [SerializeField] private float trackingRange = 60;
+    [SerializeField] private float detectionRange  = 50;
+    [SerializeField] private float trackingRange = 70;
     [SerializeField] private string targetLayer = "";
-
 
     private AIStates currentAction = AIStates.wandering;
     private float searchTimer = 0;
@@ -28,7 +27,7 @@ public class SteeringBehaviorGrunt : SteeringBehaviorBase
         float desiredRotation = 0f;
         foreach (Steering behavior in steerings )
         {
-            if (behavior.AIState == currentAction)
+            if (behavior.AIState == currentAction || behavior.AIState == AIStates.always)
             {
                 behavior.Target = target;
                 SteeringData steering = behavior.GetSteering(this);

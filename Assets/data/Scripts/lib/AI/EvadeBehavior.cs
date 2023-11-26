@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EvadeBehavior : Steering
 {
-    float prediction;
+    [SerializeField] private float prediction;
     public override SteeringData GetSteering(SteeringBehaviorBase steeringbase)
     {
         SteeringData steering = new SteeringData();

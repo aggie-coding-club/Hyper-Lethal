@@ -16,6 +16,9 @@ public abstract class Projectile : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        HealthManager hm = collision.gameObject.GetComponent<HealthManager>();
+        if (hm) hm.damage(damage);
+        
         Destroy(gameObject);
     }
     public abstract void FixedUpdate();

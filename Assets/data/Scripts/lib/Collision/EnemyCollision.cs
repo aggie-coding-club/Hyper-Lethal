@@ -21,7 +21,7 @@ public class EnemyCollision : MonoBehaviour
                 if (suicide)
                     Destroy(gameObject);
             break;
-            case ("PlayerProjectile"):
+            case ("Projectile"):
                 Projectile proj = collision.gameObject.GetComponent<Projectile>();
                 healthManager.damage(proj.damage);
                 break;

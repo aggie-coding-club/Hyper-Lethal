@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class SteeringBehaviorKami : SteeringBehaviorBase
+public class SteeringBehaviorKami : SteeringBehaviorShip
 {
     [SerializeField] private float searchPeriod = 2;
     [SerializeField] private float detectionRange  = 40;
@@ -30,7 +30,7 @@ public class SteeringBehaviorKami : SteeringBehaviorBase
         float desiredRotation = 0f;
         foreach (Steering behavior in steerings )
         {
-            if (behavior.AIState == currentAction)
+            if (behavior.AIState == currentAction || behavior.AIState == AIStates.always)
             {
                 behavior.Target = target;
                 SteeringData steering = behavior.GetSteering(this);

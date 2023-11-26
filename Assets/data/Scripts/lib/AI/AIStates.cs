@@ -1,6 +1,7 @@
 public enum AIStates
 {
-            wandering = 0,
-            attacking = 1,
-            idling = 2
+            always,
+            wandering,
+            attacking,
+            idling
 };

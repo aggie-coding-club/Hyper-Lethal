@@ -41,23 +41,28 @@ public class Turret : MonoBehaviour
                 searchForTargets();
             }
             searchTimer += Time.deltaTime;
-            // Get the rigid body of the target
-            // If coaxial do raycast, if hit, shoot
 
+            float angle = 0;
+            
             if (target)
             {         
                 Vector2 delta = target.transform.position - transform.position;
-                float angle = -90 + Mathf.Rad2Deg*Mathf.Atan2(delta.y, delta.x) - transform.eulerAngles.z;
-
-                if (Mathf.Abs(angle) > 180)
-                    angle-=Mathf.Sign(angle)*360;
-                
-                if (!coaxial)
-                    transform.Rotate(new Vector3(0, 0,angle),Space.World);
-                
-                if (MathF.Abs(angle) < minimumFiringAngle)
-                    shoot();
+                angle = Mathf.Rad2Deg*Mathf.Atan2(delta.y, delta.x) - 90 - transform.eulerAngles.z;
             }
+            else
+            {
+                angle = -GetComponentInParent<Transform>().eulerAngles.z;
+            }
+
+            if (Mathf.Abs(angle) > 180)
+                angle-=Mathf.Sign(angle)*360;
+            
+            if (!coaxial)
+                transform.Rotate(new Vector3(0, 0, angle * Time.deltaTime),Space.World);
+            
+            if (target && MathF.Abs(angle) < minimumFiringAngle)
+                turretWeapon.shoot();
+
         }
         else if (!coaxial)
         {
@@ -71,11 +76,16 @@ public class Turret : MonoBehaviour
             if (Mathf.Abs(angle) > 180)
                 angle-=Mathf.Sign(angle)*360;
             
-            transform.Rotate(new Vector3(0, 0,angle),Space.World);
+            transform.Rotate(new Vector3(0, 0, angle * Time.deltaTime),Space.World);
         }
     }
     private void searchForTargets()
     {
+        if (target && (transform.position-target.transform.position).magnitude < range)
+            return;
+        else
+            target = null;
+        
         LayerMask mask = LayerMask.GetMask(targetLayer);
 
         Collider2D[] targets = Physics2D.OverlapCircleAll(transform.position,range,mask);
@@ -94,6 +104,6 @@ public class Turret : MonoBehaviour
     }
     public void shoot()
     {
-        turretWeapon.shoot();
+        if (!autonomous) turretWeapon.shoot();
     }
 }
