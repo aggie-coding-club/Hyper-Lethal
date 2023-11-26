@@ -8,6 +8,7 @@ public class SteeringBehaviorBase : MonoBehaviour
     protected Steering[] steerings;
     protected Engine engine;
     
+
     public float MaxAcc;
     public float MaxAngAcc;
     void Start()

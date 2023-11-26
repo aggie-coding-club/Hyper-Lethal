@@ -1,14 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
-public class SteeringBehaviorKami : SteeringBehaviorBase
+public class SteeringBehaviorGrunt : SteeringBehaviorBase
 {
     [SerializeField] private float searchPeriod = 2;
     [SerializeField] private float detectionRange  = 40;
     [SerializeField] private float trackingRange = 60;
     [SerializeField] private string targetLayer = "";
+
 
     private AIStates currentAction = AIStates.wandering;
     private float searchTimer = 0;
@@ -73,4 +71,3 @@ public class SteeringBehaviorKami : SteeringBehaviorBase
         }
     }
 }
-

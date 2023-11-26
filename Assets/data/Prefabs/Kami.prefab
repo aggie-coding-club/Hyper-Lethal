@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weight: 0.3
-  category: 0
+  AIState: 0
   wanderRate: 0.2
   wanderOffset: 3
   wanderRadius: 3
@@ -252,7 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weight: 0.7
-  category: 1
+  AIState: 1
   prediction: 0.5
 --- !u!114 &7015939953757132655
 MonoBehaviour:
@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weight: 1
-  category: 0
+  AIState: 0
 --- !u!114 &4687238360623835527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,4 +281,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weight: 1
-  category: 1
+  AIState: 0
