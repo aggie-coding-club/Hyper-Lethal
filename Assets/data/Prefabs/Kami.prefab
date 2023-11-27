@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 7673624374672405814}
   - component: {fileID: 1749327279480363489}
   - component: {fileID: 5627664535442187170}
+  - component: {fileID: 2633447598011028483}
   - component: {fileID: 5627664535442187171}
   - component: {fileID: 7015939953757132655}
   m_Layer: 7
@@ -232,11 +233,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec6b25d6d4265e94885744c1f8bf6475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weight: 0.1
+  weight: 0.3
   AIState: 1
   wanderRate: 0.2
   wanderOffset: 3
   wanderRadius: 3
+--- !u!114 &2633447598011028483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5374239377677998995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e6f225d0bb1488488c2867da6229902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weight: 0.5
+  AIState: 2
 --- !u!114 &5627664535442187171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,9 +264,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37f260c9d7aacc14b8fd627c9da5eb47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weight: 0.7
+  weight: 0.5
   AIState: 2
-  prediction: 0.5
+  prediction: 1
 --- !u!114 &7015939953757132655
 MonoBehaviour:
   m_ObjectHideFlags: 0

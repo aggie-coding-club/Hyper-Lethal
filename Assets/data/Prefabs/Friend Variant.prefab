@@ -33,7 +33,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3191206062147930322, guid: b891b14096f3208489e8a90f9f2095e5, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Friend
       objectReference: {fileID: 0}
     - target: {fileID: 7123095332194632686, guid: b891b14096f3208489e8a90f9f2095e5, type: 3}
       propertyPath: m_RootOrder
@@ -86,6 +86,14 @@ PrefabInstance:
     - target: {fileID: 7411890605816954419, guid: b891b14096f3208489e8a90f9f2095e5, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7411890605816954422, guid: b891b14096f3208489e8a90f9f2095e5, type: 3}
+      propertyPath: coaxial
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7411890605816954422, guid: b891b14096f3208489e8a90f9f2095e5, type: 3}
+      propertyPath: autonomous
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7411890605816954422, guid: b891b14096f3208489e8a90f9f2095e5, type: 3}
       propertyPath: targetLayer

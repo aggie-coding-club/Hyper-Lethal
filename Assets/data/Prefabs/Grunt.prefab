@@ -167,7 +167,7 @@ MonoBehaviour:
   drag: 0.2
   maxAngAcc: 360
   maxAngVel: 120
-  angDrag: 4
+  angDrag: 8
   rotation_input: 0
   impulse_vector: {x: 0, y: 0}
 --- !u!114 &1247434104036909908

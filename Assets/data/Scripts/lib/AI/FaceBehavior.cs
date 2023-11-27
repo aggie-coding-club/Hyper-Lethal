@@ -24,6 +24,9 @@ public class FaceBehavior : Steering
             angle-=Mathf.Sign(angle)*360;
         
         steering.angular = Mathf.Sign(angle)*engine.MaxAngVel;
+
+        if (Mathf.Abs(angle) < 15)
+            steering.angular += rb2D_self.angularVelocity;
         return steering;
     }
 }

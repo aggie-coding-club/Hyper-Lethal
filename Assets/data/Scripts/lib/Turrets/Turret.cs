@@ -15,6 +15,7 @@ public class Turret : MonoBehaviour
     private float range = 0;
     private GameObject target;
     private float searchTimer = 0;
+    private bool hadTarget = true;
 
     public bool Coaxial { get => coaxial; set => coaxial = value; }
     public bool Autonomous { get => autonomous; set => autonomous = value; }
@@ -35,14 +36,14 @@ public class Turret : MonoBehaviour
         {
             // Since this is an expensive operation,
             // I do not want it running every frame
-            if (searchTimer > searchPeriod)
+            if (searchTimer > searchPeriod || hadTarget)
             {
                 searchTimer = 0;
                 searchForTargets();
             }
             searchTimer += Time.deltaTime;
 
-            float angle = 0;
+            float angle;
             
             if (target)
             {         
@@ -51,14 +52,14 @@ public class Turret : MonoBehaviour
             }
             else
             {
-                angle = -GetComponentInParent<Transform>().eulerAngles.z;
+                angle = transform.parent.eulerAngles.z - transform.eulerAngles.z;
             }
 
             if (Mathf.Abs(angle) > 180)
                 angle-=Mathf.Sign(angle)*360;
             
             if (!coaxial)
-                transform.Rotate(new Vector3(0, 0, angle * Time.deltaTime),Space.World);
+                transform.Rotate(new Vector3(0, 0, angle * 10 * Time.deltaTime),Space.World);
             
             if (target && MathF.Abs(angle) < minimumFiringAngle)
                 turretWeapon.shoot();
@@ -84,7 +85,10 @@ public class Turret : MonoBehaviour
         if (target && (transform.position-target.transform.position).magnitude < range)
             return;
         else
+        {
+            hadTarget = !hadTarget;
             target = null;
+        }
         
         LayerMask mask = LayerMask.GetMask(targetLayer);
 
@@ -101,6 +105,8 @@ public class Turret : MonoBehaviour
                 target = t.gameObject;
             }
         }
+        if (target) 
+            hadTarget = true;
     }
     public void shoot()
     {
