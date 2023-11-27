@@ -27,4 +27,15 @@ public class EnemyCollision : MonoBehaviour
                 break;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        switch (collision.gameObject.tag)
+        {
+            case ("PlayerProjectile"):
+                Projectile proj = collision.gameObject.GetComponent<Projectile>();
+                healthManager.damage(proj.damage);
+                break;
+        }
+    }
 }

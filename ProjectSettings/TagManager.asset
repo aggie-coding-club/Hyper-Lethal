@@ -7,6 +7,9 @@ TagManager:
   - PlayerProjectile
   - Enemy
   - EnemyProjectile
+  - gameUI
+  - healthBar
+  - shieldBar
   layers:
   - Default
   - TransparentFX
