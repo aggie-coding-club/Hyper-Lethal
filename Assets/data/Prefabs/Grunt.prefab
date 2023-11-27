@@ -244,7 +244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxAcc: 0
   MaxAngAcc: 0
-  searchPeriod: 1
+  searchPeriod: 4
   detectionRange: 50
   trackingRange: 70
   targetLayer: Player

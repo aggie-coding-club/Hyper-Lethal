@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -12,14 +13,14 @@ public class SteeringBehaviorKami : SteeringBehaviorShip
 
     private AIStates currentAction = AIStates.wandering;
     private float searchTimer = 0;
-
+    private bool hadTarget = true;
     protected GameObject target = null;
 
     private void FixedUpdate()
     {
         // Since this is an expensive operation,
         // I do not want it running every frame
-        if (searchTimer > searchPeriod)
+        if (searchTimer > searchPeriod || hadTarget)
         {
             searchTimer = 0;
             searchForTargets();
@@ -44,16 +45,15 @@ public class SteeringBehaviorKami : SteeringBehaviorShip
     }
     private void searchForTargets()
     {
-        if (target)
-        {
-            currentAction = AIStates.attacking;
-            if ((transform.position-target.transform.position).magnitude < trackingRange)
-                return;
-            else
-                target = null;
-        }
+        if (target && (transform.position-target.transform.position).magnitude < trackingRange)
+            return;
         else
-            currentAction = AIStates.wandering;
+        {
+            hadTarget = !hadTarget;
+            target = null;
+        }
+
+        currentAction = AIStates.wandering;
 
         LayerMask mask = LayerMask.GetMask(targetLayer);
 
@@ -69,6 +69,11 @@ public class SteeringBehaviorKami : SteeringBehaviorShip
                 mindist = magsqr;
                 target = t.gameObject;
             }
+        }
+        if (target) 
+        {
+            currentAction = AIStates.attacking;
+            hadTarget = true;
         }
     }
 }
