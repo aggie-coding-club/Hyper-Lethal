@@ -14,7 +14,7 @@ public class enemyUIManager : MonoBehaviour
     float currentHealth;
     void Start()
     {
-        healthSlider = healthBar.GetComponent<Slider>();
+        healthSlider = healthBar.GetComponentInChildren<Slider>();
         enemyHealth = GetComponentInParent<Hull>();
         maxHealth = enemyHealth.MaxHull;
         currentHealth = maxHealth;
