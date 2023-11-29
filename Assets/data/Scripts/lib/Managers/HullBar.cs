@@ -8,6 +8,8 @@ public class HullBar : MonoBehaviour
     Hull hull;
     float maxHealth;
     float currentHealth;
+    [SerializeField] GameObject followObject;
+    [SerializeField] float yOffset = 1;
     void Start()
     {
         healthSlider = GetComponent<Slider>();
@@ -20,6 +22,8 @@ public class HullBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.eulerAngles = new Vector3(0, 0, 0);
+        transform.position = new Vector3(followObject.transform.position.x, followObject.transform.position.y + yOffset, 0);
         currentHealth = hull.HullHp;
         healthSlider.value = currentHealth / maxHealth;
     }

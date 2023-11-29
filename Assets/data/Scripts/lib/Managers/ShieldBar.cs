@@ -8,6 +8,8 @@ public class ShieldBar : MonoBehaviour
     Shield shield;
     float maxHealth;
     float currentHealth;
+    [SerializeField] GameObject followObject;
+    [SerializeField] float yOffset = 1;
     void Start()
     {
         healthSlider = GetComponent<Slider>();
@@ -20,6 +22,8 @@ public class ShieldBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.eulerAngles = new Vector3(0, 0, 0);
+        transform.position = new Vector3(followObject.transform.position.x, followObject.transform.position.y + yOffset, 0);
         currentHealth = shield.ShieldHp;
         healthSlider.value = currentHealth / maxHealth;
     }
