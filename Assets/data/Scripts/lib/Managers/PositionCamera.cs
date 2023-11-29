@@ -18,6 +18,9 @@ public class PositionCamera : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
+        if (!targetTransform)
+            return;
+        
         Vector2 difference = transform.position - targetTransform.position;
         float magnitude = difference.magnitude;
         if (followDistance < magnitude)

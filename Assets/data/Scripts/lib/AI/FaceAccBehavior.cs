@@ -18,8 +18,12 @@ public class FaceAccBehavior : Steering
 
         if (Mathf.Abs(angle) > 180)
             angle-=Mathf.Sign(angle)*360;
-        
+
         steering.angular = Mathf.Sign(angle)*engine.MaxAngVel;
+
+        if (Mathf.Abs(angle) < 15)
+            steering.angular += rb2D.angularVelocity;
+        
         return steering;
     }
     

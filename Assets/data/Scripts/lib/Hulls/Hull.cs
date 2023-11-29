@@ -7,14 +7,17 @@ public abstract class Hull : MonoBehaviour
     [SerializeField] private float maxHull= 100;
     [SerializeField] private float regenRatePerc = 0.01f;
     
+    [SerializeField] private float collisionDamage = 10f;
     // Will remove serialize field tag when optimizing
     [SerializeField] private float hullHp;
-    [SerializeField] private bool broken = false;
+
+    private bool broken = false;
 
     public float MaxHull { get => maxHull; set => maxHull = value; }
     public float RegenRatePerc { get => regenRatePerc; set => regenRatePerc = value; }
     public float HullHp { get => hullHp; set => hullHp = value; }
     public bool Broken { get => broken; set => broken = value; }
+    public float CollisionDamage { get => collisionDamage; set => collisionDamage = value; }
 
     // Start is called before the first frame update
     void Start()

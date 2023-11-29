@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 2616069810461452019}
   - component: {fileID: 5627664535442187173}
   - component: {fileID: 8616394929156698126}
-  - component: {fileID: 6720677044869569196}
-  - component: {fileID: 5627664535442187169}
+  - component: {fileID: 7673624374672405814}
+  - component: {fileID: 1749327279480363489}
   - component: {fileID: 5627664535442187170}
+  - component: {fileID: 2633447598011028483}
   - component: {fileID: 5627664535442187171}
   - component: {fileID: 7015939953757132655}
   m_Layer: 7
@@ -175,8 +176,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHull: 10
   regenRatePerc: 0.1
+  collisionDamage: 30
   hullHp: 0
-  broken: 0
 --- !u!114 &8616394929156698126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,7 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c56a5c487692e9c4ca5364fd9742e84a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6720677044869569196
+--- !u!114 &7673624374672405814
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -198,12 +199,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5374239377677998995}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e82fe75419ebb6469c80c27ac03bb47, type: 3}
+  m_Script: {fileID: 11500000, guid: c278aecb81a73c846bce97bb8c0d82db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   suicide: 1
-  collisionDamage: 10
---- !u!114 &5627664535442187169
+--- !u!114 &1749327279480363489
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -212,11 +212,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5374239377677998995}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 945ff8b2a77f1ad45a7e8970fb2f0970, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e85033a03aa77c4b9dd433eec0984a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MaxAcc: 0
   MaxAngAcc: 0
+  searchPeriod: 2
+  detectionRange: 50
+  trackingRange: 70
+  targetLayer: Player
 --- !u!114 &5627664535442187170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,9 +234,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weight: 0.3
+  AIState: 1
   wanderRate: 0.2
   wanderOffset: 3
   wanderRadius: 3
+--- !u!114 &2633447598011028483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5374239377677998995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e6f225d0bb1488488c2867da6229902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weight: 0.5
+  AIState: 2
 --- !u!114 &5627664535442187171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,9 +264,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37f260c9d7aacc14b8fd627c9da5eb47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weight: 0.7
-  target: {fileID: 0}
-  prediction: 0.5
+  weight: 0.5
+  AIState: 2
+  prediction: 1
 --- !u!114 &7015939953757132655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,3 +280,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weight: 1
+  AIState: 0
