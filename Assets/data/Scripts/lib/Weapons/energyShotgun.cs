@@ -6,6 +6,7 @@ public class energyShotgun : Weapon
 {
     [SerializeField] float pushMagnitude = 2f;
     [SerializeField] float increaseMagnitude = 2f;
+    [SerializeField] private float spreadDeg = 15;
     public override void shoot()
     {
         if (fireTimer < 0.1E-9)
@@ -19,7 +20,8 @@ public class energyShotgun : Weapon
                 energyShotgunProj projData = proj.AddComponent<energyShotgunProj>();
 
                 float offset = 0;
-
+                if (pCount > 1)
+                    offset = Mathf.Lerp(-spreadDeg, spreadDeg, (i) / (float)(pCount - 1));
                 trans.Rotate(0, 0, offset + inaccuracy * Random.Range(-180, 180));
                 prb2D.velocity = trans.up * pVelocity;
                 trans.localScale *= pSize;

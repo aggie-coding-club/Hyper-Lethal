@@ -8,6 +8,10 @@ TagManager:
   - Projectile
   - PlayerProjectile
   - Friend
+  - EnemyProjectile
+  - gameUI
+  - healthBar
+  - shieldBar
   layers:
   - Default
   - TransparentFX
