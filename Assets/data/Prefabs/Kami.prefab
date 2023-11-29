@@ -199,7 +199,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5374239377677998995}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53b7a6a74db2f0b488b292479752d899, type: 3}
+  m_Script: {fileID: 11500000, guid: c278aecb81a73c846bce97bb8c0d82db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   suicide: 1
@@ -212,14 +212,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5374239377677998995}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a458c7651ef0c434e908e71bb45f3036, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e85033a03aa77c4b9dd433eec0984a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MaxAcc: 0
   MaxAngAcc: 0
   searchPeriod: 2
-  detectionRange: 40
-  trackingRange: 60
+  detectionRange: 50
+  trackingRange: 70
   targetLayer: Player
 --- !u!114 &5627664535442187170
 MonoBehaviour:

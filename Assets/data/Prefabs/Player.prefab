@@ -100,8 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coaxial: 1
   autonomous: 0
-  targetLayer: 
-  minimumFiringAngle: 3
+  targetLayer: Enemy
+  minimumFiringAngle: 5
   searchPeriod: 2
 --- !u!1 &4252398296957871335
 GameObject:
@@ -300,7 +300,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7916954351839405784}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53b7a6a74db2f0b488b292479752d899, type: 3}
+  m_Script: {fileID: 11500000, guid: c278aecb81a73c846bce97bb8c0d82db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   suicide: 0

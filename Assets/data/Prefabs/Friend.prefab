@@ -25,9 +25,9 @@ GameObject:
   - component: {fileID: 6461001442951737744}
   - component: {fileID: 1247434104036909905}
   - component: {fileID: 1247434104036909904}
-  m_Layer: 7
-  m_Name: Grunt
-  m_TagString: Enemy
+  m_Layer: 6
+  m_Name: Friend
+  m_TagString: Friend
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,7 +90,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 90534dbe56009ad44a76d265561fe34b, type: 3}
-  m_Color: {r: 1, g: 0.007795334, b: 0, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.90765953, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -462,7 +462,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: daa295b22d256eb4eb9b13ca836957cb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 472ac3ec2502b804196b0e28f06f37d9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -487,7 +487,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coaxial: 1
   autonomous: 1
-  targetLayer: Player
+  targetLayer: Enemy
   minimumFiringAngle: 10
   searchPeriod: 2
 --- !u!114 &7411890605816954424
@@ -502,7 +502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e65f180d8c8a564199c77de9f6c54d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 5352774961424907871, guid: 0b5e45cb9ee5d3746970b9f297b99da9, type: 3}
+  projectile: {fileID: 5352774961424907871, guid: 89e1cfa1406a6c4448faebad41dbf3e2, type: 3}
   firePoint: {fileID: 7411890604856135413}
   damage: 10
   fireRate: 2
