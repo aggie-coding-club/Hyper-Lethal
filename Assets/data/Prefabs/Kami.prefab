@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2112ae5c2d901f49a6b8d31f3ea01dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAcc: 20
+  maxAcc: 100
   maxVel: 40
   drag: 0.8
   maxAngAcc: 720
