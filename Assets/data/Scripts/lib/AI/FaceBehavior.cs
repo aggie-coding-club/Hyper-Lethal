@@ -9,7 +9,7 @@ public class FaceBehavior : Steering
     public override SteeringData GetSteering(SteeringBehaviorBase
     steeringbase)
     {
-        Rigidbody2D rb2D_self =  GetComponent<Rigidbody2D>();
+        Rigidbody2D rb2D =  GetComponent<Rigidbody2D>();
 
         Engine engine = GetComponent<Engine>();
 
@@ -18,15 +18,16 @@ public class FaceBehavior : Steering
         if (!Target) return steering;
 
         Vector2 delta = Target.transform.position - transform.position;
-        float angle =90 - Mathf.Rad2Deg*Mathf.Atan2(delta.y, delta.x) + rb2D_self.rotation;
+        float angle =90 - Mathf.Rad2Deg*Mathf.Atan2(delta.y, delta.x) + rb2D.rotation;
 
         if (Mathf.Abs(angle) > 180)
             angle-=Mathf.Sign(angle)*360;
         
-        steering.angular = Mathf.Sign(angle)*engine.MaxAngVel;
-
+        steering.angular =  MathF.Sign(angle)*engine.MaxAngAcc;
+        
         if (Mathf.Abs(angle) < 15)
-            steering.angular += rb2D_self.angularVelocity;
+            steering.angular += rb2D.angularVelocity;
+        
         return steering;
     }
 }

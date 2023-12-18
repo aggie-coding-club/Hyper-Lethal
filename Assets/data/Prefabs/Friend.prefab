@@ -170,12 +170,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2112ae5c2d901f49a6b8d31f3ea01dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAcc: 15
-  maxVel: 40
+  maxAcc: 20
+  maxVel: 60
   drag: 0.2
   maxAngAcc: 360
-  maxAngVel: 120
-  angDrag: 8
+  maxAngVel: 180
+  angDrag: 10
   rotation_input: 0
   impulse_vector: {x: 0, y: 0}
 --- !u!114 &1247434104036909908
@@ -538,7 +538,7 @@ MonoBehaviour:
   pVelocity: 25
   pLifetime: 2
   pSize: 0.5
-  pCount: 1
+  pCount: 3
   accuracy: 0.99
   fireTimer: 0
   spreadDeg: 15
